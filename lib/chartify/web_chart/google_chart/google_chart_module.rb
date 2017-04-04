@@ -21,6 +21,7 @@ module Chartify
         end
 
         def array_data_table
+          p 'array_data_table'
           array_data = label_column.present? ? [[label_column] + column_names] : [column_names]
           array_data + data.collect do |row|
             row_val = column_keys.collect { |col| row[col] }
@@ -33,15 +34,29 @@ module Chartify
         end
 
         def include_js
-          %q{<script type="text/javascript" src="https://www.google.com/jsapi"></script>}
+          %q{<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>}
+
         end
 
         def wrap_in_function(code)
+          # js = <<-JS
+          #   google.load("visualization", "1", {packages:["corechart"], callback:drawChart#{timestamp}});
+          #   function drawChart#{timestamp}() {
+          #     #{code}
+          #   }
+          # JS
+
+
+
+
+
           js = <<-JS
-            google.load("visualization", "1", {packages:["corechart"], callback:drawChart#{timestamp}});
             function drawChart#{timestamp}() {
+            console.log('cargando google')
               #{code}
             }
+            google.charts.load('43', {packages: ['corechart']});
+            google.charts.setOnLoadCallback(drawChart#{timestamp});
           JS
           js.html_safe
         end

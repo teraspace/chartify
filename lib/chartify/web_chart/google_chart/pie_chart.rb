@@ -9,7 +9,7 @@ module Chartify
         def render(html_dom_id)
           datasets = data.collect do |column|
             if column.kind_of?(Array)
-              title, val = column[0], column[1]
+              title, val = column[0], column[1].to_f
             else
               title, val = column, column.to_s.humanize
             end
