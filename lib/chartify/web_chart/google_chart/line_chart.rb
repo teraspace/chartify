@@ -10,6 +10,7 @@ module Chartify
         def render(html_dom_id)
           js = <<-JS
             var data = google.visualization.arrayToDataTable(#{array_data_table.to_json});
+            console.log(#{array_data_table.to_json})
             var chart = new google.visualization.LineChart(document.getElementById('#{html_dom_id}'));
             chart.draw(data, #{chart_options.to_json});
           JS

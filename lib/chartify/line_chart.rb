@@ -31,7 +31,6 @@ module Chartify
       data_for_column(label_column).each_with_index do |label, index|
         labels[index] = label.to_s
       end
-
       g.labels = labels
       g.to_blob
     end
