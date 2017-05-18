@@ -23,6 +23,9 @@ module Chartify
         def array_data_table
           p 'array_data_table'
           array_data = label_column.present? ? [[label_column] + column_names] : [column_names]
+          if data.kind_of?(NilClass)
+            return []
+          end
           array_data + data.collect do |row|
             row_val = column_keys.collect { |col| row[col].to_i }
             label_column.present? ? [row[label_column]] + row_val : row_val
