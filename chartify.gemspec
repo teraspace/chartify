@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'gruff', '~> 0.5'
-  s.add_development_dependency 'rmagick', ['~> 2.15']
+  s.add_development_dependency 'rmagick'
   s.add_development_dependency 'railties', ['>= 3', '< 5']
   s.add_development_dependency "sqlite3", '~> 0'
   s.add_development_dependency 'rake', ['~> 10.3']
