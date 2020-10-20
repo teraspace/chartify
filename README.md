@@ -1,3 +1,7 @@
+Forked by Carlos Patiño.
+
+Rails 5 compatibility and some hacks for Oracle.
+
 Chartify
 =======
 The purpose of this gem is to capture data to create a chart, in an object, so that we can do the following things
